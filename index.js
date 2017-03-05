@@ -13,9 +13,9 @@ var Nodule;
 
 /** @enum {string} */
 var ScanType = {
-  CT: 'CT',
-  MRI: 'MRI',
-  SPEC: 'SPEC',
+  CT: 'DCE CT',
+  MRI: 'DCE MRI',
+  SPECT: 'SPECT',
   PET: 'PET',
   NONE: 'None',
 };
@@ -76,7 +76,34 @@ function getNodule(form) {
  * @return {number}
  */
 function getCancerProbability(nodule) {
-  return 0.2;
+  var matchingRows = window.PULMONARY_NODULE_DATA
+      .filter(function(row) {
+        return row.smokingHistory === nodule.smokingHistory;
+      })
+      .filter(function(row) {
+        return row.cancerHistory === nodule.cancerHistory;
+      })
+      .filter(function(row) {
+        return row.spiculated === nodule.spiculated;
+      })
+      .filter(function(row) {
+        return row.upperLobe === nodule.upperLobe;
+      })
+      .filter(function(row) {
+        return row.scanType === nodule.scanType;
+      });
+
+  if (matchingRows.length === 0) {
+    renderError('No row found that matched the form input');
+    return;
+  }
+
+  // Just take first matching row.
+  var row = matchingRows[0];
+
+  // Return age- and size-specific probability.
+  var probabilityKey = nodule.age + ' ' + nodule.size;
+  return row[probabilityKey];
 }
 
 function renderProbability(probability) {
@@ -87,6 +114,10 @@ function renderProbability(probability) {
   var resultRect = submitEl.getBoundingClientRect();
   resultEl.style.top = resultRect.top + window.scrollY - 24 + 'px';
   resultEl.style.left = resultRect.right + window.scrollX + 24 + 'px';
+}
+
+function renderError(message) {
+  console.log(message);
 }
 
 /**
