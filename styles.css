@@ -1,0 +1,49 @@
+body {
+  font-family: sans-serif;
+}
+
+button.section {
+  font-weight: normal;
+}
+
+.form,
+.heading {
+  width: 360px;
+  margin: 0 auto;
+}
+
+.heading {
+  margin-bottom: 24px;
+}
+
+.result {
+  background-color: #9eff9e;
+  display: none;
+  font-size: 16px;
+  padding: 24px;
+  position: absolute;
+}
+
+.result.dirty {
+  opacity: 0.4;
+}
+
+.result.visible {
+  display: inline-block;
+}
+
+.section {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.section label, .section select {
+  display: block;
+  font-weight: normal;
+}
+
+.section > label:first-child, .section > select:first-child {
+  margin-top: 12px;
+}

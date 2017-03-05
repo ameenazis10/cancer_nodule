@@ -3,52 +3,86 @@
   <head>
     <meta charset="utf-8">
     <title>Cancerous Nodule Probability</title>
-    <link rel="./styles.css" type="text/css">
-    <script href="./index.js" type="text/javascript"></script>
+    <link href="./styles.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <form>
-      <label>Patient's age:
-        <select id="age">
-          <option selected disabled>--Select--</option>
+    <section class="heading">
+      <h1>Cancerous Nodule Probability</h1>
+      <p>Answer the following questions to lookup the probability that a nodule is cancerous</p>
+    </section>
+
+    <form class="form">
+      <label class="section">Patient's age:
+        <select id="age" required>
+          <option value="" selected disabled>--Select--</option>
           <option value="35">35</option>
           <option value="55">55</option>
           <option value="75">75</option>
         </select>
       </label>
-      <label>Patient smokes?
-        <input name="smokes" type="radio" value="Yes" />
-        <input name="smokes" type="radio" value="No" />
+      <label class="section">Patient smokes?
+        <label>
+          <input name="smoking-history" type="radio" value="Yes" required />
+          Yes
+        </label>
+        <label>
+          <input name="smoking-history" type="radio" value="No" required />
+          No
+        </label>
       </label>
-      <label>Patient has cancer history?
-        <input name="cancer-history" type="radio" value="Yes" />
-        <input name="cancer-history" type="radio" value="No" />
+      <label class="section">Patient has cancer history?
+        <label>
+          <input name="cancer-history" type="radio" value="Yes" required />
+          Yes
+        </label>
+        <label>
+          <input name="cancer-history" type="radio" value="No" required />
+          No
+        </label>
       </label>
-      <label>Nodule is spiculated?
-        <input name="spiculated-nodule" type="radio" value="Yes" />
-        <input name="spiculated-nodule" type="radio" value="No" />
+      <label class="section">Nodule is spiculated?
+        <label>
+          <input name="spiculated" type="radio" value="Yes" required />
+          Yes
+        </label>
+        <label>
+          <input name="spiculated" type="radio" value="No" required />
+          No
+        </label>
       </label>
-      <label>Is the nodule in the upper lobe?
-        <input name="upper-lobe" type="radio" value="Yes" />
-        <input name="upper-lobe" type="radio" value="No" />
+      <label class="section">Is the nodule in the upper lobe?
+        <label>
+          <input name="upper-lobe" type="radio" value="Yes" required />
+          Yes
+        </label>
+        <label>
+          <input name="upper-lobe" type="radio" value="No" required />
+          No
+        </label>
       </label>
-      <label>Size of the nodule:
-        <select id="size">
-          <option selected disabled>--Select--</option>
-          <option value="10">10mm</option>
-          <option value="20">20mm</option>
-          <option value="30">30mm</option>
+      <label class="section">Size of the nodule:
+        <select id="size" required>
+          <option value="" selected disabled>--Select--</option>
+          <option value="10mm">10mm</option>
+          <option value="20mm">20mm</option>
+          <option value="30mm">30mm</option>
         </select>
       </label>
-      <label>Type of scan used:
-        <select id="scan-type">
-          <option selected disabled>--Select--</option>
-          <option value="CT">CT</option></select>
-          <option value="MRI">MRI</option></select>
-          <option value="SPEC">SPEC</option></select>
-          <option value="PET">PET</option></select>
-          <option value="None">None</option></select>
+      <label class="section">Type of scan used:
+        <select id="scan-type" required>
+          <option value="" selected disabled>--Select--</option>
+          <option value="CT">CT</option>
+          <option value="MRI">MRI</option>
+          <option value="SPEC">SPEC</option>
+          <option value="PET">PET</option>
+          <option value="None">None</option>
+        </select>
       </label>
+      <button class="section" type="submit">Get Probability</button>
     </form>
+    <div class="result">
+      Cancer probability: <span class="probability"></span>
+    </div>
+    <script src="./index.js" type="text/javascript"></script>
   </body>
 </html>
