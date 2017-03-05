@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cancerous Nodule Probability</title>
+    <link rel="./styles.css" type="text/css">
+    <script href="./index.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <form>
+      <label>Patient's age:
+        <select id="age">
+          <option selected disabled>--Select--</option>
+          <option value="35">35</option>
+          <option value="55">55</option>
+          <option value="75">75</option>
+        </select>
+      </label>
+      <label>Patient smokes?
+        <input name="smokes" type="radio" value="Yes" />
+        <input name="smokes" type="radio" value="No" />
+      </label>
+      <label>Patient has cancer history?
+        <input name="cancer-history" type="radio" value="Yes" />
+        <input name="cancer-history" type="radio" value="No" />
+      </label>
+      <label>Nodule is spiculated?
+        <input name="spiculated-nodule" type="radio" value="Yes" />
+        <input name="spiculated-nodule" type="radio" value="No" />
+      </label>
+      <label>Is the nodule in the upper lobe?
+        <input name="upper-lobe" type="radio" value="Yes" />
+        <input name="upper-lobe" type="radio" value="No" />
+      </label>
+      <label>Size of the nodule:
+        <select id="size">
+          <option selected disabled>--Select--</option>
+          <option value="10">10mm</option>
+          <option value="20">20mm</option>
+          <option value="30">30mm</option>
+        </select>
+      </label>
+      <label>Type of scan used:
+        <select id="scan-type">
+          <option selected disabled>--Select--</option>
+          <option value="CT">CT</option></select>
+          <option value="MRI">MRI</option></select>
+          <option value="SPEC">SPEC</option></select>
+          <option value="PET">PET</option></select>
+          <option value="None">None</option></select>
+      </label>
+    </form>
+  </body>
+</html>
