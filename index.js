@@ -109,11 +109,6 @@ function getCancerProbability(nodule) {
 function renderProbability(probability) {
   probabilityEl.innerText = probability;
   resultEl.className = 'result visible';
-
-  // Show the rect to the right of the submit button.
-  var resultRect = submitEl.getBoundingClientRect();
-  resultEl.style.top = resultRect.top + window.scrollY - 24 + 'px';
-  resultEl.style.left = resultRect.right + window.scrollX + 24 + 'px';
 }
 
 function renderError(message) {

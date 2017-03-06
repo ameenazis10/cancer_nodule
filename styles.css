@@ -7,7 +7,8 @@ button.section {
 }
 
 .form,
-.heading {
+.heading,
+.result {
   width: 360px;
   margin: 0 auto;
 }
@@ -18,10 +19,10 @@ button.section {
 
 .result {
   background-color: #9eff9e;
+  box-sizing: border-box;
   display: none;
   font-size: 16px;
   padding: 24px;
-  position: absolute;
 }
 
 .result.dirty {
@@ -29,14 +30,14 @@ button.section {
 }
 
 .result.visible {
-  display: inline-block;
+  display: block;
 }
 
 .section {
   display: block;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .section label, .section select {
